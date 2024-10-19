@@ -3,7 +3,6 @@ package io.github.a13e300.ksuwebui
 import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.os.Build
-import android.os.Build.VERSION_CODES.R
 import android.os.Bundle
 import android.view.ViewGroup.MarginLayoutParams
 import android.webkit.WebResourceRequest
