@@ -3,6 +3,7 @@ package io.github.a13e300.ksuwebui
 import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.os.Build
+import android.os.Build.VERSION_CODES.R
 import android.os.Bundle
 import android.view.ViewGroup.MarginLayoutParams
 import android.webkit.WebResourceRequest
@@ -11,6 +12,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -74,6 +76,11 @@ class WebUIActivity : ComponentActivity(), FileSystemService.Listener {
         }
 
         setContentView(webView)
+        onBackPressedDispatcher.addCallback {
+            if(webView.canGoBack())
+                webView.goBack()
+            else onBackPressedDispatcher.onBackPressed()
+        }
         FileSystemService.start(this)
     }
 
