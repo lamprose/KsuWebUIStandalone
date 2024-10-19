@@ -78,7 +78,7 @@ class WebUIActivity : ComponentActivity(), FileSystemService.Listener {
         onBackPressedDispatcher.addCallback {
             if(webView.canGoBack())
                 webView.goBack()
-            else onBackPressedDispatcher.onBackPressed()
+            else finish()
         }
         FileSystemService.start(this)
     }
